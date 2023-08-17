@@ -4,8 +4,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 import math
 import argparse
+import os
+import shutil
 
 def main(file_name, step, x1, y1, x2, y2):
+    output_dir = "output"
+    if os.path.exists(output_dir):
+        shutil.rmtree(output_dir)
+    os.makedirs(output_dir)
     # Process 2,3
     with rasterio.open(file_name) as src:
         band = src.read(1)
@@ -17,7 +23,7 @@ def main(file_name, step, x1, y1, x2, y2):
         plt.figure()
         plt.imshow(band_np, cmap='jet')
         plt.colorbar()
-        plt.savefig("altitude_image.png")
+        plt.savefig(f"{output_dir}/altitude_image.png")
 
         # interpolate_func = get_value_with_floor_clip
         interpolate_func = get_value_with_bilinear_interpolation
@@ -47,7 +53,7 @@ def main(file_name, step, x1, y1, x2, y2):
         ax[1].grid(axis='y')
         ax[1].set_ylabel("altitude(m)")
         ax[1].legend()
-        plt1.savefig("profile_cut_image.png")
+        plt1.savefig(f"{output_dir}/profile_cut_image.png")
 
         
 
@@ -77,8 +83,8 @@ if __name__=="__main__":
     parser.add_argument("--tif", default="srtm_65_04.tif", help="tif file name")
     parser.add_argument("--step", type=int, default=100, help="profiler resolution step")
     parser.add_argument("--x1", type=int, default=1200, help="profiling start position x")
-    parser.add_argument("--y1", type=int, default=4800, help="profiling start position x")
-    parser.add_argument("--x2", type=int, default=3600, help="profiling end position x")
+    parser.add_argument("--y1", type=int, default=3600, help="profiling start position x")
+    parser.add_argument("--x2", type=int, default=4800, help="profiling end position x")
     parser.add_argument("--y2", type=int, default=1200, help="profiling end position x")
     args = parser.parse_args()
     main(args.tif, args.step, args.x1, args.y1, args.x2, args.y2)
