@@ -10,7 +10,7 @@ cd DEM_profiler
 ```bash
 poetry install
 ```
-or if you want to use pip (sorry, not tested)
+or if you want to use pip (not tested)
 ```bash
 pip install -r requirementx.txt
 ```
