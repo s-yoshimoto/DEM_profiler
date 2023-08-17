@@ -80,7 +80,7 @@ def get_value_with_bilinear_interpolation(data: np.array, x: float, y: float) ->
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Profiling geo image')
-    parser.add_argument("--tif", default="srtm_65_04.tif", help="tif file name")
+    parser.add_argument("--tiff", default="srtm_65_04.tif", help="tiff file name")
     parser.add_argument("--step", type=int, default=100, help="profiler resolution step")
     parser.add_argument("--x1", type=int, default=1200, help="profiling start position x")
     parser.add_argument("--y1", type=int, default=3600, help="profiling start position x")
