@@ -27,6 +27,7 @@ or
 # if you use pip
 python profiler.py
 ```
+then you get result images in output directory
 
 ## File Description
 - profiler.ipynb: for quick code test
