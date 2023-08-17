@@ -48,6 +48,7 @@ def main(file_name, step, x1, y1, x2, y2):
         ax = plt1.subplots(1, 2, gridspec_kw={'width_ratios': [1, 3]})
         ax[0].imshow(band_np, cmap='jet')
         ax[0].plot([start_point[1], end_point[1]], [start_point[0], end_point[0]], color="black", marker="o", label="profile cut")
+        ax[0].legend()
         ax[1].plot(profile, label="profile cut")
         ax[1].grid(axis='x')
         ax[1].grid(axis='y')
@@ -87,4 +88,4 @@ if __name__=="__main__":
     parser.add_argument("--x2", type=int, default=4800, help="profiling end position x")
     parser.add_argument("--y2", type=int, default=1200, help="profiling end position x")
     args = parser.parse_args()
-    main(args.tif, args.step, args.x1, args.y1, args.x2, args.y2)
+    main(args.tiff, args.step, args.x1, args.y1, args.x2, args.y2)
