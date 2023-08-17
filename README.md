@@ -28,7 +28,6 @@ or
 python profiler.py
 ```
 
-
 ## File Description
 - profiler.ipynb: for quick code test
 - profiler.py: for deploying script code
