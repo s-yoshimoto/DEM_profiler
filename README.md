@@ -27,7 +27,9 @@ or
 # if you use pip
 python profiler.py
 ```
-then you get result images in output directory
+then you get following images in output directory
+- altitude_image.png : visualized elevation map
+- profile_cut_image.png : profiling cut image
 
 ## File Description
 - profiler.ipynb: for quick code test
